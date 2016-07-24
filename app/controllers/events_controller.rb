@@ -54,10 +54,7 @@ class EventsController < ApplicationController
   def secure_edit_channel
     current_user_id = current_user.id
     if current_user_id != @current_id =Event.find(params[:id]).user_id
-     raise "Wtf"
       redirect_to root_path
-    else
-      raise "WTF"
     end
   end
 
