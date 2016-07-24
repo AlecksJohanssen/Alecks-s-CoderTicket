@@ -2,6 +2,7 @@ class VenuesController < ApplicationController
 
   def new 
     @venue = Venue.new
+    @regions= Region.all
   end
 
   def create
@@ -15,6 +16,6 @@ class VenuesController < ApplicationController
 
   private
   def venue_params
-    params.require(:venue).permit(:name,:full_address)
+    params.require(:venue).permit(:name,:full_address,:region_id)
   end
 end

@@ -32,7 +32,7 @@ venue_camau = Venue.create({
   region: Region.find_by(name: 'Ca Mau')
 })
 #Date
- date1 = Date.parse(
+ 
 
 # First event:
 # Việt Nam Thử Thách Chiến Thắng

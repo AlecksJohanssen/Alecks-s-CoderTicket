@@ -1,0 +1,6 @@
+<% @events.each do |event|%>
+  <%= event.name %>
+  <%= time_ago_in_words event.ends_at %>
+<%end %>
+
+
