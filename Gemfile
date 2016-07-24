@@ -28,6 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
  gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
 
+ gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+   gem 'guard-rspec'
+
 gem 'bootstrap', '~> 4.0.0.alpha1'
 gem 'simple_form'
 gem 'quiet_assets'
