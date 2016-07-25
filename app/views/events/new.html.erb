@@ -16,9 +16,9 @@
     <%= f.text_field :ends_at%>
 
    <%= f.select :category_id, Category.all.map{|e| [e.name, e.id]} %>
-   <%= f.select :venue_id, Venue.all.map{|e| [e.name, e.id]} %>`
+   <%= f.select :venue_id, Venue.all.map{|e| [e.name, e.id]} %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  
+    <%= f.select :ticket_type_id, TicketType.all.map{|e| [e.name,e.id]}%>
 
 <%= f.submit %>
 <% end %>

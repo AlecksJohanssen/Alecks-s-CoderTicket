@@ -26,11 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.11'
 
- gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
-
- gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-   gem 'guard-rspec'
-
 gem 'bootstrap', '~> 4.0.0.alpha1'
 gem 'simple_form'
 gem 'quiet_assets'
@@ -38,9 +33,16 @@ gem 'better_errors', group: :development
 gem 'font-awesome-rails'
 gem 'font-kit-rails', '~> 1.2.0'
 
+
+group :test do
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+end
+gem 'zeus', '~> 0.15.4'
+gem 'factory_girl'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'simplecov', :require => false, :group => :test
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

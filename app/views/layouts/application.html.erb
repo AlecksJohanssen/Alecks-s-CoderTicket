@@ -12,7 +12,6 @@
     <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
     <ul class="nav navbar-nav">
       <% if current_user %>
-        <%= current_user.id  %>
         <li class="nav-item">
           <%= link_to "Log Out #{current_user.email}", logout_path, method: 'delete', class: "nav-link" %>
         </li> 

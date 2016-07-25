@@ -10,5 +10,9 @@ class Event < ActiveRecord::Base
     venue.try(:name)
   end 
 
+  def self.search(query)
+     where("name like ?", "%#{query}%")
+  end
+
   end 
 

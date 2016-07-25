@@ -10,5 +10,20 @@ RSpec.describe Event, type: :model do
       event.venue = Venue.new(name: "RMIT")
       expect(event.venue_name).to eq "RMIT"
     end
+
+    it "belongs to venue" do
+     venue = Venue.new
+     event = Event.new
+     venue.events << event
+     expect(venue.event).to be venue
+    end
+    
+     it "belongs to category" do
+       category = Category.new
+       event= Event.new
+       event.categories << event
+       expect(category.event).to be category
+     end
+     end
   end
 end

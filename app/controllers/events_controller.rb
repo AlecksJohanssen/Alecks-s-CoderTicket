@@ -5,15 +5,19 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @events = Event.where(published: true)
+      if params[:search]
+       @events = Event.search(params[:search])
+      end
   end
 
   def new
-    @event = Event.new 
+    @event = Event.new
     @categories = Category.all
     @venues = Venue.all
     @regions = Region.all
+    @ticket_types = TicketType.all
   end
-  
+
   def edit
     @event = Event.find(params[:id])
   end
@@ -21,8 +25,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new (event_params)
     if @event.save
-      @current_id = @event.user_id
-      redirect_to root_path
+      redirect_to event_path(@event)
     else
       render :new
     end
@@ -31,7 +34,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
-  
+
   def update
     @event = Event.find(params[:id])
       if @event.update(event_params)
@@ -60,6 +63,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name,:extended_html_description,:venue_id,:category_id,:starts_at,:ends_at,:user_id)
+    params.require(:event).permit(:name,:extended_html_description,:venue_id,:category_id,:starts_at,:ends_at,:user_id,:ticket_type_id)
   end
 end

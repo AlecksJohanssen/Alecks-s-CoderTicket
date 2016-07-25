@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   get 'users/:id/events' => 'users#events', :as => :user_events
   root 'events#index'
+  resources :ticket_types
   resources :sessions, only: [:new, :create]
   delete '/logout' => 'sessions#destroy'
   resources :venues
